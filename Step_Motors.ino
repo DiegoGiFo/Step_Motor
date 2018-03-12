@@ -3,17 +3,17 @@
 //Direction pin
 #define X_DIR     5
 #define Y_DIR     6
-#define Z_DIR     7
+//#define Z_DIR     7
 
 //Step pin
 #define X_STP     2
 #define Y_STP     3
-#define Z_STP     4
+//#define Z_STP     4
 
 
 //DRV8825
-int delayTime=30; //Delay between each pause (uS)
-int stps=360;// Steps to move
+int delayTime=600; //Delay between each pause (uS)
+int stps=2000;// Steps to move
 
 
 void step(boolean dir, byte dirPin, byte stepperPin, int steps)
@@ -44,7 +44,6 @@ void setup(){
 
   pinMode(Y_DIR, OUTPUT); pinMode(Y_STP, OUTPUT);
 
-  pinMode(Z_DIR, OUTPUT); pinMode(Z_STP, OUTPUT);
 
   pinMode(EN, OUTPUT);
 
@@ -55,14 +54,14 @@ void setup(){
 void loop(){
 
   step(false, X_DIR, X_STP, stps); //X, Clockwise
-  step(false, Y_DIR, Y_STP, stps); //Y, Clockwise
-  step(false, Z_DIR, Z_STP, stps); //Z, Clockwise
+  step(false, Y_DIR, Y_STP, stps);
+
 
   delay(100);
 
   step(true, X_DIR, X_STP, stps); //X, Counterclockwise
   step(true, Y_DIR, Y_STP, stps); //Y, Counterclockwise
-  step(true, Z_DIR, Z_STP, stps); //X, Counterclockwise
+
 
   delay(100);
 
