@@ -13,7 +13,7 @@
 
 //DRV8825
 int delayTime=30; //Delay between each pause (uS)
-int stps=6400;// Steps to move
+int stps=360;// Steps to move
 
 
 void step(boolean dir, byte dirPin, byte stepperPin, int steps)
