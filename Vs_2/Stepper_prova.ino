@@ -1,19 +1,16 @@
 
 #include <StepperDriver.h>
-#define EN        8
-/* Identificatori di assi all'interno della libreria; su loro poi
- * Puoi controllare uno specifico. Gli assi possono essere fatti diversi,
- * Il numero massimo nell'assembly nativo è 3. Viene gestito modificando
- * hederfail, c'è una costante NUM_AXSIS
-*/
+#define EN 8
+
 axis_t right, left;
 
 void setup ()
 {
-  pinMode(EN, OUTPUT);
+  //need to set the enable to LOW because if it is HIGH the motors are desabled
 
+  pinMode(EN, OUTPUT);
   digitalWrite(EN, LOW);
-  // Inizializzazione driver: timer
+
   StepperDriver.init ();
 
 /* Registrare gli assi controllati. Qui in ordine
@@ -25,23 +22,11 @@ void setup ()
   left = StepperDriver.newAxis (2, 5, 255, 200);
   right = StepperDriver.newAxis (3, 6, 255, 200);
 
-// StepperDriver.disable (asse);
+// StepperDriver.disable (asse); if needed
 
   StepperDriver.enable(left);
   StepperDriver.enable(right);
 
-/* Inizializzazione dello chassis: trasferimento qui da
-   * ordina gli identificatori degli assi sinistro e destro.
-   * Questo oggetto non è necessario da usare, aiuta
-   * Solo nel caso in cui la SD sia effettuata direttamente
-   * L'unità del robot. Attraverso StepperDriver puoi fare tutto
-   * operazioni di base con i motori.
-   *
-   * In futuro penso di rimuovere questo oggetto, facendo di più
-   * Telaio universale per un funzionamento confortevole
-   * Telaio robot, indipendentemente dal tipo di motore.
-*/
-//  StepperChassis.init (sinistra, destra);
 }
 
 void loop ()
@@ -62,18 +47,16 @@ void loop ()
    * Una volta impostata la velocità o il ritardo, il motore si avvia
    * ruota con il parametro specificato e in background.
   */
+
   StepperDriver.setDir (left, FORWARD);
   StepperDriver.setDelay(left, 2000);
-  StepperDriver.setSpeed (left, 200);
-  StepperDriver.setDir (right, FORWARD);
+  StepperDriver.setSpeed (left, 600);
+  StepperDriver.setDir (right, BACKWARD);
   StepperDriver.setDelay(right, 2000);
-  StepperDriver.setSpeed (right, 200);
+  StepperDriver.setSpeed (right, 600);
   //StepperDriver.stop (left);
   //StepperDriver.stop (right);
   delay (1000);
-  StepperDriver.stop (left);
-  StepperDriver.stop (right);
-
 
   /*StepperDriver.setDir (left, BACKWARD);
   StepperDriver.setSpeed (left, 40000);
