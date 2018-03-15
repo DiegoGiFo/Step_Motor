@@ -7,3 +7,5 @@ Info abuot microstepping of step motor: [microstepping](http://www.nmbtc.com/ste
 Nema 17 datasheet [Casun motor nema 17](http://www.casunmotor.com/nema-17-stepper-motor)
 
 Info about cnc shield: [Cnc shield](https://blog.protoneer.co.nz/arduino-cnc-shield/#Assembly)
+
+Libary:[CNC library](https://github.com/DIMRobotics/ArduinoStepperDriver/wiki/Reference)
