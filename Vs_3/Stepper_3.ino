@@ -26,10 +26,9 @@ void setup ()
 
   StepperDriver.setDir (left, FORWARD);
   StepperDriver.setDir (right, FORWARD);
-  StepperDriver.setDelay(left, 65000);
-  StepperDriver.setSpeed (left, 100);
-  StepperDriver.setSpeed (right, 100);
-  StepperDriver.setDelay(right, 200000);
+  StepperDriver.setSpeed (left, 400);
+  StepperDriver.setSpeed (right, 400);
+
 
 
 }
